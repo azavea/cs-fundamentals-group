@@ -1,0 +1,40 @@
+name: CI
+on:
+  pull_request:
+    branches: ['**']
+  push:
+    branches: ['**']
+    tags: [v*]
+jobs:
+  build:
+    name: Build and Test
+    if: github.event_name == 'push'
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Install libCS50
+        run: |
+          curl -s https://packagecloud.io/install/repositories/cs50/repo/script.deb.sh | sudo bash
+          sudo apt install libcs50
+
+      - name: Build
+        run: |
+          # fun to compile all c files in the folder
+          function compile() {
+              for filename in *.c; do
+                  cc "$filename" -o "${filename%%.*}" -lcs50
+              done
+          }
+
+          # jump into the work dir
+          cd cs-50;
+          # for each week compile
+          for dir in week*; do
+            cd "$dir"; compile; cd ~-
+          done  

@@ -3,6 +3,11 @@
 
 # VSCode files
 .history
+.vscode
 
-# binaries per week
-cs-50/week-1/mario
+# ignore binaries per week
+/cs-50/week-*/*
+# unignore sources per week
+!/cs-50/week-*/*.c 
+# unignore run scripts per week
+!/cs-50/week-*/*.sh 
