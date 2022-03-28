@@ -7,9 +7,10 @@
 int main(int argc, string argv[])
 {
     // EDGE CASES:
-    // check to make sure only one arg
-        // if not return Usage: ./substitution key
-    // else
+    if(argc != 2){
+        printf("Usage: ./substitution key");
+        return 1;
+    }
     string key = argv[1];
     if(strlen(key) != 26){
         printf("Key must contain 26 characters.");
