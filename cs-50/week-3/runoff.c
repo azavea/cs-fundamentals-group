@@ -178,7 +178,7 @@ bool print_winner(void)
     // more than half of votes count
     for(int i=0; i < candidate_count; i++){
         //printf("%d", candidates[i].votes);
-        if(candidates[i].votes > round(((float) voter_count)/2)){
+        if(candidates[i].votes > voter_count/2){
             printf("%s", candidates[i].name);
             return true;
         }
