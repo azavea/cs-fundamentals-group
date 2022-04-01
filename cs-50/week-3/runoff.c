@@ -1,6 +1,7 @@
 #include <cs50.h>
 #include <stdio.h>
 #include <string.h>
+#include <math.h>
 
 // Max voters and candidates
 #define MAX_VOTERS 100
@@ -95,6 +96,8 @@ int main(int argc, string argv[])
         {
             break;
         }
+        //printf("%d", won);
+        //break;
 
         // Eliminate last-place candidates
         int min = find_min();
@@ -147,6 +150,24 @@ bool vote(int voter, int rank, string name)
 void tabulate(void)
 {
     // TODO
+    // for given rank in preferences
+        // for each candidate in preferences
+        // preferences[i][0] == candidate[i].name
+        // // += candidate[i].votes
+    // beware!
+    for(int i=0; i < voter_count; i++){
+        for(int j=0; j < candidate_count; j++){
+            //candidate candidate_check = candidates[preferences[i][j]];
+            if(!candidates[preferences[i][j]].eliminated){
+                printf("pref, %d; ", preferences[i][j]);
+                printf("before, %d; ", candidates[preferences[i][j]].votes);
+                //candidate_check.votes++;
+                candidates[preferences[i][j]].votes++;
+                printf("after, %d", candidates[preferences[i][j]].votes);
+                break;
+            }
+        }
+    }
     return;
 }
 
@@ -154,6 +175,14 @@ void tabulate(void)
 bool print_winner(void)
 {
     // TODO
+    // more than half of votes count
+    for(int i=0; i < candidate_count; i++){
+        //printf("%d", candidates[i].votes);
+        if(candidates[i].votes > round(((float) voter_count)/2)){
+            printf("%s", candidates[i].name);
+            return true;
+        }
+    }
     return false;
 }
 
