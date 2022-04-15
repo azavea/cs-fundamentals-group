@@ -99,13 +99,31 @@ int main(int argc, string argv[])
 // Update ranks given a new vote
 bool vote(int rank, string name, int ranks[])
 {
-    // TODO
+    // Some background:
+        // candidates array = all of the names of our candidates in no particular order, populated at start
+        // for each voter, we create an empty ranks array that's the size of the number of candidates
+        // then, loop through each candidate
+        // for each candidate, populate the voter's ranks array with the candidate at their ranking (if a candidate was voted 3rd, push candidate to ranks[2])
+        // EXAMPLE:
+            // candidates = [Charlie, Alice, Bob];
+            // a voter casts the following votes: 1. Alice, 2. Bob, 3. Charlie
+            // at the end of for loop calling vote(), the ranks array should be: [1, 2, 0];
+                // candidates[ranks[0]] = Alice
+        // this ranks array is then used to populate a global preferences array (?)
+
+    for (int i = 0; i < candidate_count; i++){
+        // here we'll make sure that the candidate name is a legit name found in the candidates array
+            // if it is, we'll add the index of the candidate (i) to ranks at rank (ranks[rank])
+            // return true
+    }
     return false;
 }
 
 // Update preferences given one voter's ranks
 void record_preferences(int ranks[])
 {
+    // preferences = tideman tally
+        // preferences will be candidates x candidates with the value of preferences[i][j] = difference of votes between candidates
     // TODO
     return;
 }
