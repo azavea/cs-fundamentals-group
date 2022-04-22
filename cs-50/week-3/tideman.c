@@ -1,5 +1,6 @@
 #include <cs50.h>
 #include <stdio.h>
+#include <string.h>
 
 // Max number of candidates
 #define MAX 9
@@ -83,16 +84,19 @@ int main(int argc, string argv[])
                 return 3;
             }
         }
+        for (int k = 0; k < candidate_count; k++){
+            printf("%d\n", ranks[k]);
+        }
 
-        record_preferences(ranks);
+    //     record_preferences(ranks);
 
-        printf("\n");
+    //     printf("\n");
     }
 
-    add_pairs();
-    sort_pairs();
-    lock_pairs();
-    print_winner();
+    // add_pairs();
+    // sort_pairs();
+    // lock_pairs();
+    // print_winner();
     return 0;
 }
 
@@ -111,10 +115,13 @@ bool vote(int rank, string name, int ranks[])
                 // candidates[ranks[0]] = Alice
         // this ranks array is then used to populate a global preferences array (?)
 
-    for (int i = 0; i < candidate_count; i++){
-        // here we'll make sure that the candidate name is a legit name found in the candidates array
-            // if it is, we'll add the index of the candidate (i) to ranks at rank (ranks[rank])
-            // return true
+    for (int i=0; i < candidate_count; i++) {
+        if (strcmp(name, candidates[i])) {
+            printf("%d\n", ranks[rank]);
+            ranks[rank] = i;
+            printf("%d\n", ranks[rank]);
+            return true;
+        }
     }
     return false;
 }
