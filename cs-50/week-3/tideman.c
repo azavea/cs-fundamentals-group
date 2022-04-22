@@ -85,7 +85,7 @@ int main(int argc, string argv[])
             }
         }
         for (int k = 0; k < candidate_count; k++){
-            printf("%d\n", ranks[k]);
+            printf("name: %s, rank: %d\n", candidates[ranks[k]], k);
         }
 
     //     record_preferences(ranks);
@@ -116,10 +116,8 @@ bool vote(int rank, string name, int ranks[])
         // this ranks array is then used to populate a global preferences array (?)
 
     for (int i=0; i < candidate_count; i++) {
-        if (strcmp(name, candidates[i])) {
-            printf("%d\n", ranks[rank]);
+        if (strcmp(name, candidates[i]) == 0) {
             ranks[rank] = i;
-            printf("%d\n", ranks[rank]);
             return true;
         }
     }
