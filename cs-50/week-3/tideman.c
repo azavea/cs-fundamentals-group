@@ -84,13 +84,10 @@ int main(int argc, string argv[])
                 return 3;
             }
         }
-        for (int k = 0; k < candidate_count; k++){
-            printf("name: %s, rank: %d\n", candidates[ranks[k]], k);
-        }
 
-    //     record_preferences(ranks);
+        record_preferences(ranks);
 
-    //     printf("\n");
+        printf("\n");
     }
 
     // add_pairs();
@@ -127,9 +124,16 @@ bool vote(int rank, string name, int ranks[])
 // Update preferences given one voter's ranks
 void record_preferences(int ranks[])
 {
+    // 
     // preferences = tideman tally
         // preferences will be candidates x candidates with the value of preferences[i][j] = difference of votes between candidates
     // TODO
+    int rank_count = candidate_count;
+    for(int i=0; i<rank_count; i++){
+        for(int j=i+1; j<rank_count; j++){
+            preferences[ranks[i]][ranks[j]] ++;
+        }
+    }
     return;
 }
 
@@ -137,6 +141,11 @@ void record_preferences(int ranks[])
 void add_pairs(void)
 {
     // TODO
+    // loop through preferences[i][j]
+    // find difference of value at preferences[i][j] from other candidates
+    // create a pair
+    // populate pairs with pair
+    // do not need to be ordered right now
     return;
 }
 
