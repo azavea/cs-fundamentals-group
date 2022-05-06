@@ -1,6 +1,8 @@
 #include <cs50.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
+#include <time.h>
 
 // Max number of candidates
 #define MAX 9
@@ -30,6 +32,7 @@ int candidate_count;
 bool vote(int rank, string name, int ranks[]);
 void record_preferences(int ranks[]);
 void add_pairs(void);
+void shuffle_pairs_for_fun(void);
 void sort_pairs(void);
 void lock_pairs(void);
 void print_winner(void);
@@ -90,8 +93,19 @@ int main(int argc, string argv[])
         printf("\n");
     }
 
-    // add_pairs();
-    // sort_pairs();
+    add_pairs();
+    printf("og pairs \n");
+    for(int i =0; i<pair_count; i++ ){
+        printf("winner: %d \n", pairs[i].winner);
+        printf("loser: %d \n", pairs[i].loser);
+    }
+    shuffle_pairs_for_fun();
+    printf("shuf pairs \n");
+    for(int i =0; i<pair_count; i++ ){
+        printf("winner: %d \n", pairs[i].winner);
+        printf("loser: %d \n", pairs[i].loser);
+    }
+    sort_pairs();
     // lock_pairs();
     // print_winner();
     return 0;
@@ -146,13 +160,38 @@ void add_pairs(void)
     // create a pair
     // populate pairs with pair
     // do not need to be ordered right now
+    for(int i=0; i<candidate_count; i++){
+        for(int j=i+1; j<candidate_count; j++){
+            if(preferences[i][j] > preferences[j][i]){
+                pairs[pair_count].winner = i;
+                pairs[pair_count].loser = j;
+                pair_count ++;
+            }
+            else if(preferences[i][j] < preferences[j][i]){
+                pairs[pair_count].winner = j;
+                pairs[pair_count].loser = i;
+                pair_count ++;
+            }
+        }
+    }
+    return;
+}
+
+void shuffle_pairs_for_fun(void)
+{
+    for(int i=0; i<pair_count; i++){
+        int random_index = (int) arc4random_uniform(i + 1);
+        pair original_pair_at_index = pairs[random_index];
+        pairs[random_index] = pairs[i];
+        pairs[i] = original_pair_at_index;
+    }
     return;
 }
 
 // Sort pairs in decreasing order by strength of victory
 void sort_pairs(void)
 {
-    // TODO
+    
     return;
 }
 
