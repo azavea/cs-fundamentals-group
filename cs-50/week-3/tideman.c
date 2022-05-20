@@ -32,7 +32,6 @@ int candidate_count;
 bool vote(int rank, string name, int ranks[]);
 void record_preferences(int ranks[]);
 void add_pairs(void);
-void shuffle_pairs_for_fun(void);
 void sort_pairs(void);
 void lock_pairs(void);
 void print_winner(void);
@@ -99,7 +98,6 @@ int main(int argc, string argv[])
         printf("winner: %d \n", pairs[i].winner);
         printf("loser: %d \n", pairs[i].loser);
     }
-    shuffle_pairs_for_fun();
     printf("shuf pairs \n");
     for(int i =0; i<pair_count; i++ ){
         printf("winner: %d \n", pairs[i].winner);
@@ -177,21 +175,24 @@ void add_pairs(void)
     return;
 }
 
-void shuffle_pairs_for_fun(void)
-{
-    for(int i=0; i<pair_count; i++){
-        int random_index = (int) arc4random_uniform(i + 1);
-        pair original_pair_at_index = pairs[random_index];
-        pairs[random_index] = pairs[i];
-        pairs[i] = original_pair_at_index;
-    }
-    return;
-}
-
 // Sort pairs in decreasing order by strength of victory
 void sort_pairs(void)
 {
-    
+    for (int i = 0; i < pair_count-1; i++) {
+        for (int j = i+1; j < pair_count; j++) {
+            int lead = preferences[pairs[j].winner][pairs[j].loser];
+            if (preferences[pairs[i].winner][pairs[i].loser] < lead) {
+                pair tmp = pairs[i];
+                pairs[i] = pairs[j];
+                pairs[j] = tmp;
+        }
+        }
+    }
+    // for (int k = 0; k < pair_count; k++) {
+    //     printf("Winner: %s ", candidates[pairs[k].winner]);
+    //     printf("Loser: %s ", candidates[pairs[k].loser]);
+    //     printf("Lead: %d\n", preferences[pairs[k].winner][pairs[k].loser]);
+    // }
     return;
 }
 
@@ -199,6 +200,12 @@ void sort_pairs(void)
 void lock_pairs(void)
 {
     // TODO
+    // create a 2d array of size candidates x candidates
+    // populated with null (maybe it's already null in C?)
+    // lock = candidate @ lock_pairs[row] --> candidate @ lock_pairs[column]
+    // if there's a lock (row is winner over column) then populate with 1
+    // UNLESS the rest of the column elements are already popualted with 0 because that's a cycle!
+    // at the end the greatest sum of the row for a candidate is the winner!
     return;
 }
 
