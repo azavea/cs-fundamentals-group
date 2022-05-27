@@ -27,7 +27,7 @@ pair pairs[MAX * (MAX - 1) / 2];
 int pair_count;
 int candidate_count;
 
-// Each pair has a winner, loser
+// Winner stats
 typedef struct
 {
     int index;
@@ -41,7 +41,6 @@ winner winmargin;
 bool vote(int rank, string name, int ranks[]);
 void record_preferences(int ranks[]);
 void add_pairs(void);
-void shuffle_pairs_for_fun(void);
 void sort_pairs(void);
 bool check_if_cycle(int og, int loser);
 void lock_pairs(void);
@@ -104,26 +103,7 @@ int main(int argc, string argv[])
     }
 
     add_pairs();
-    printf("og pairs \n");
-    for(int i =0; i<pair_count; i++ ){
-        printf("winner: %d ; ", pairs[i].winner);
-        printf("loser: %d ; ", pairs[i].loser);
-        printf("lead: %d \n", preferences[pairs[i].winner][pairs[i].loser]);
-    }
-    shuffle_pairs_for_fun();
-    printf("shuf pairs \n");
-    for(int i =0; i<pair_count; i++ ){
-        printf("winner: %d ; ", pairs[i].winner);
-        printf("loser: %d ; ", pairs[i].loser);
-        printf("lead: %d \n", preferences[pairs[i].winner][pairs[i].loser]);
-    }
     sort_pairs();
-    printf("sorted pairs \n");
-    for(int i =0; i<pair_count; i++ ){
-        printf("winner: %d ; ", pairs[i].winner);
-        printf("loser: %d ; ", pairs[i].loser);
-        printf("lead: %d \n", preferences[pairs[i].winner][pairs[i].loser]);
-    }
     lock_pairs();
     printf("locked pairs \n");
     for(int i =0; i<candidate_count; i++ ){
@@ -198,17 +178,6 @@ void add_pairs(void)
                 pair_count ++;
             }
         }
-    }
-    return;
-}
-
-void shuffle_pairs_for_fun(void)
-{
-    for(int i=0; i<pair_count; i++){
-        int random_index = (int) arc4random_uniform(i + 1);
-        pair original_pair_at_index = pairs[random_index];
-        pairs[random_index] = pairs[i];
-        pairs[i] = original_pair_at_index;
     }
     return;
 }
