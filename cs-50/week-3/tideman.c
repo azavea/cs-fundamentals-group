@@ -10,7 +10,7 @@
 int preferences[MAX][MAX];
 
 // locked[i][j] means i is locked in over j
-bool locked[MAX][MAX];
+int locked[MAX][MAX];
 
 // Each pair has a winner, loser
 typedef struct
@@ -72,7 +72,7 @@ int main(int argc, string argv[])
     {
         for (int j = 0; j < candidate_count; j++)
         {
-            locked[i][j] = false;
+            locked[i][j] = 0;
         }
     }
 
@@ -105,7 +105,7 @@ int main(int argc, string argv[])
     add_pairs();
     sort_pairs();
     lock_pairs();
-    printf("locked pairs \n");
+    printf("locked pairs graph: \n");
     for(int i =0; i<candidate_count; i++ ){
         for(int j =0; j<candidate_count; j++ ){
         printf("%d ",locked[i][j]);
@@ -207,11 +207,10 @@ bool check_if_cycle(int og, int loser)
 {
     bool return_value = false;
     if (loser == og){
-        printf("a cycle!");
         return true;
     }
     for( int j = 0; j < candidate_count; j++){
-        if(locked[loser][j] == true){
+        if(locked[loser][j] == 1){
             return_value = check_if_cycle(og, j);
         }
     }
@@ -232,7 +231,8 @@ void lock_pairs(void)
     for (int k = 0; k < pair_count; k++){
         bool cycle = check_if_cycle(pairs[k].winner, pairs[k].loser);
         if(!check_if_cycle(pairs[k].winner, pairs[k].loser)){
-            locked[pairs[k].winner][pairs[k].loser] = true;
+            locked[pairs[k].winner][pairs[k].loser] = 1;
+            locked[pairs[k].loser][pairs[k].winner] = -1;
         }
     }
     return;
@@ -244,9 +244,7 @@ void print_winner(void)
     for (int i = 0; i < candidate_count; i++){
         int sum = 0;
         for (int j =0; j <candidate_count; j++){
-            if(locked[i][j] == true){
-                sum += 1;
-            }
+            sum += locked[i][j];
         }
         if (sum > winmargin.sum){
             winmargin.index = i;
