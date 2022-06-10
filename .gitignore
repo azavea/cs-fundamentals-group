@@ -11,3 +11,7 @@
 !/cs-50/week-*/*.c 
 # unignore run scripts per week
 !/cs-50/week-*/*.sh 
+# unignore headers per week
+!/cs-50/week-*/*.h 
+# unignore static images per week
+!/cs-50/week-*/images/*
