@@ -36,5 +36,9 @@ jobs:
           cd cs-50;
           # for each week compile
           for dir in week*; do
-            cd "$dir"; compile; cd ~-
+            if [[ "$dir" == *"week-4"* ]];then
+              cd "$dir"; cc filter.c helpers.c -o filter -lcs50; cd ~-
+            else
+              cd "$dir"; compile; cd ~-
+            fi
           done  
