@@ -68,6 +68,36 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 // Blur image
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            int iOffset[9] = {-1, -1, -1, 0, 0, 0, 1, 1, 1};
+            int jOffset[9] = {-1, 0, 1, -1, 0, 1, -1, 0, 1};
+
+            float sumBlue = 0.0;
+            float sumGreen = 0.0;
+            float sumRed = 0.0;
+            int neighbors = 0;
+
+            for (int k = 0; k < 9; k++)
+            {
+                // If pixel exists
+                if (i + iOffset[k] > 0 && i + iOffset[k] < height - iOffset[k] && j + jOffset[k] > 0 && j + jOffset[k] < width - iOffset[k])
+                {
+                    RGBTRIPLE thisColor = image[i + iOffset[k]][j + jOffset[k]];
+
+                    sumBlue = sumBlue + thisColor.rgbtBlue;
+                    sumGreen = sumGreen + thisColor.rgbtGreen;
+                    sumRed = sumRed + thisColor.rgbtRed;
+                    neighbors++;
+                }
+            }
+            image[i][j].rgbtBlue = (int)round(sumBlue / neighbors);
+            image[i][j].rgbtGreen = (int)round(sumGreen / neighbors);
+            image[i][j].rgbtRed = (int)round(sumRed / neighbors);
+        }
+    }
     return;
 }
 
