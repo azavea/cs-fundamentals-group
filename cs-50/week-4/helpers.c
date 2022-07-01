@@ -105,3 +105,56 @@ int cap(int num)
 {
     return (num < 255) ? num : 255;
 }
+
+// Detect edges
+void edges(int height, int width, RGBTRIPLE image[height][width])
+{
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            int iOffset[9] = {-1, -1, -1, 0, 0, 0, 1, 1, 1};
+            int jOffset[9] = {-1, 0, 1, -1, 0, 1, -1, 0, 1};
+            int xWeight[9] = {-1, 0, 1, -2, 0, 2, -1, 0, 1};
+            int yWeight[9] = {-1, -2, -1, 0, 0, 0, 1, 2, 1};
+
+            float sumBlue_X = 0.0;
+            float sumGreen_X = 0.0;
+            float sumRed_X = 0.0;
+            
+            float sumBlue_Y = 0.0;
+            float sumGreen_Y = 0.0;
+            float sumRed_Y = 0.0;
+
+            for (int k = 0; k < 9; k++)
+            {
+                // If pixel exists
+                if (i + iOffset[k] > 0 && i + iOffset[k] < height - iOffset[k] && j + jOffset[k] > 0 && j + jOffset[k] < width - iOffset[k])
+                {
+                    RGBTRIPLE thisColor = image[i + iOffset[k]][j + jOffset[k]];
+
+                    sumBlue_X = sumBlue_X + (thisColor.rgbtBlue*xWeight[k]);
+                    sumGreen_X = sumGreen_X + (thisColor.rgbtGreen*xWeight[k]);
+                    sumRed_X = sumRed_X + (thisColor.rgbtRed*xWeight[k]);
+
+                    sumBlue_Y = sumBlue_Y + (thisColor.rgbtBlue*yWeight[k]);
+                    sumGreen_Y = sumGreen_Y + (thisColor.rgbtGreen*yWeight[k]);
+                    sumRed_Y = sumRed_Y + (thisColor.rgbtRed*yWeight[k]);
+                }
+                else {
+                    sumBlue_X = sumBlue_X + 0;
+                    sumGreen_X = sumGreen_X + 0;
+                    sumRed_X = sumRed_X + 0;
+
+                    sumBlue_Y = sumBlue_Y + 0;
+                    sumGreen_Y = sumGreen_Y + 0;
+                    sumRed_Y = sumRed_Y + 0;
+                }
+            }
+            image[i][j].rgbtBlue = cap((int)round(sqrt(pow(sumBlue_X, 2)+pow(sumBlue_Y, 2))));
+            image[i][j].rgbtGreen = cap((int)round(sqrt(pow(sumGreen_X, 2)+pow(sumGreen_Y, 2))));
+            image[i][j].rgbtRed = cap((int)round(sqrt(pow(sumRed_X, 2)+pow(sumRed_Y, 2))));
+        }
+    }
+    return;
+}
