@@ -122,6 +122,8 @@ int main(int argc, char *argv[])
         
         // Edges
         case 'e':
+            grayscale(height, width, image);
+            blur(height, width, image);
             edges(height, width, image);
             break;
     }

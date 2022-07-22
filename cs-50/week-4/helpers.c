@@ -127,6 +127,14 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width; j++)
         {
+            imageCopy[i][j] = image[i][j];
+        }
+    }
+
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width; j++)
+        {
             int iOffset[9] = {-1, -1, -1, 0, 0, 0, 1, 1, 1};
             int jOffset[9] = {-1, 0, 1, -1, 0, 1, -1, 0, 1};
 
@@ -141,8 +149,6 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             double sumGreen_Y = 0.0;
             double sumRed_Y = 0.0;
 
-            imageCopy[i][j] = image[i][j];
-
             for (int k = 0; k < 9; k++)
             {
                 // If pixel exists
@@ -153,22 +159,18 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                     double thisGreen = (double)imageCopy[i + iOffset[k]][j + jOffset[k]].rgbtGreen;
                     double thisRed = (double)imageCopy[i + iOffset[k]][j + jOffset[k]].rgbtRed;
 
-                    sumBlue_X = sumBlue_X + (thisBlue * xWeight[k]);
-                    sumGreen_X = sumGreen_X + (thisGreen * xWeight[k]);
-                    sumRed_X = sumRed_X + (thisRed * xWeight[k]);
+                    sumBlue_X += (thisBlue * xWeight[k]);
+                    sumGreen_X += (thisGreen * xWeight[k]);
+                    sumRed_X += (thisRed * xWeight[k]);
 
-                    sumBlue_Y = sumBlue_Y + (thisBlue * yWeight[k]);
-                    sumGreen_Y = sumGreen_Y + (thisGreen * yWeight[k]);
-                    sumRed_Y = sumRed_Y + (thisRed * yWeight[k]);
+                    sumBlue_Y += (thisBlue * yWeight[k]);
+                    sumGreen_Y += (thisGreen * yWeight[k]);
+                    sumRed_Y += (thisRed * yWeight[k]);
                 }
             }
             image[i][j].rgbtBlue = magnitudeOf(sumBlue_X, sumBlue_Y);
             image[i][j].rgbtGreen = magnitudeOf(sumGreen_X, sumGreen_Y);
             image[i][j].rgbtRed = magnitudeOf(sumRed_X, sumRed_Y);
-            // For checking just the Y or X values
-            // image[i][j].rgbtBlue = cap((int)round(sumBlue_Y));
-            // image[i][j].rgbtGreen = cap((int)round(sumGreen_Y));
-            // image[i][j].rgbtRed = cap((int)round(sumRed_Y));
         }
     }
     // Free memory for image
