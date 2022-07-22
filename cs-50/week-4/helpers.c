@@ -1,8 +1,11 @@
 #include "helpers.h"
 #include <stdio.h>
+#include <stdlib.h>
 #include <math.h>
 
 int cap(int num);
+double squareOf(double num);
+int magnitudeOf(double x, double y);
 
 // Convert image to grayscale
 void grayscale(int height, int width, RGBTRIPLE image[height][width])
@@ -104,4 +107,84 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 int cap(int num)
 {
     return (num < 255) ? num : 255;
+}
+
+// Detect edges
+void edges(int height, int width, RGBTRIPLE image[height][width])
+{
+    // RGBTRIPLE imageCopy[height][width];
+
+    // Allocate memory for image
+    RGBTRIPLE(*imageCopy)
+    [width] = calloc(height, width * sizeof(RGBTRIPLE));
+    if (imageCopy == NULL)
+    {
+        printf("Not enough memory to store image copy.\n");
+        return;
+    }
+
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            imageCopy[i][j] = image[i][j];
+        }
+    }
+
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            int iOffset[9] = {-1, -1, -1, 0, 0, 0, 1, 1, 1};
+            int jOffset[9] = {-1, 0, 1, -1, 0, 1, -1, 0, 1};
+
+            int xWeight[9] = {-1, 0, 1, -2, 0, 2, -1, 0, 1};
+            int yWeight[9] = {-1, -2, -1, 0, 0, 0, 1, 2, 1};
+
+            double sumBlue_X = 0.0;
+            double sumGreen_X = 0.0;
+            double sumRed_X = 0.0;
+
+            double sumBlue_Y = 0.0;
+            double sumGreen_Y = 0.0;
+            double sumRed_Y = 0.0;
+
+            for (int k = 0; k < 9; k++)
+            {
+                // If pixel exists
+                if (i + iOffset[k] > 0 && i + iOffset[k] < height - iOffset[k] && j + jOffset[k] > 0 && j + jOffset[k] < width - iOffset[k])
+                {
+                    // RGBTRIPLE thisColor = image[i + iOffset[k]][j + jOffset[k]];
+                    double thisBlue = (double)imageCopy[i + iOffset[k]][j + jOffset[k]].rgbtBlue;
+                    double thisGreen = (double)imageCopy[i + iOffset[k]][j + jOffset[k]].rgbtGreen;
+                    double thisRed = (double)imageCopy[i + iOffset[k]][j + jOffset[k]].rgbtRed;
+
+                    sumBlue_X += (thisBlue * xWeight[k]);
+                    sumGreen_X += (thisGreen * xWeight[k]);
+                    sumRed_X += (thisRed * xWeight[k]);
+
+                    sumBlue_Y += (thisBlue * yWeight[k]);
+                    sumGreen_Y += (thisGreen * yWeight[k]);
+                    sumRed_Y += (thisRed * yWeight[k]);
+                }
+            }
+            image[i][j].rgbtBlue = magnitudeOf(sumBlue_X, sumBlue_Y);
+            image[i][j].rgbtGreen = magnitudeOf(sumGreen_X, sumGreen_Y);
+            image[i][j].rgbtRed = magnitudeOf(sumRed_X, sumRed_Y);
+        }
+    }
+    // Free memory for image
+    free(imageCopy);
+
+    return;
+}
+
+double squareOf(double num)
+{
+    return pow(num, 2);
+}
+
+int magnitudeOf(double x, double y)
+{
+    return cap((int)round(sqrt(squareOf(x) + squareOf(y))));
 }
