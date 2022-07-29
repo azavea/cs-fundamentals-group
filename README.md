@@ -33,7 +33,7 @@ We're going to learn computer science! Once a week we'll meet and work on proble
 | | [Week 2: Arrays](https://cs50.harvard.edu/x/2022/weeks/2/) | <ul><li>[Set 1](https://cs50.harvard.edu/x/2022/psets/2/caesar/)</li><li>[Set 2](https://cs50.harvard.edu/x/2022/psets/2/substitution/)</li></ul>| [Problem Set 1](/cs-50/week-2/caesar.c) <br /> [Problem Set 2](/cs-50/week-2/substitution.c) |
 | | [Week 3: Algorithms](https://cs50.harvard.edu/x/2022/weeks/3/) |  <ul><li>[Set 1](https://cs50.harvard.edu/x/2022/psets/3/runoff/)</li><li>[Set 2](https://cs50.harvard.edu/x/2022/psets/3/tideman/)</li></ul> | [Problem Set 1](/cs-50/week-3/runoff.c) <br /> [Problem Set 2](/cs-50/week-3/tideman.c) |
 | | [Week 4: Memory](https://cs50.harvard.edu/x/2022/weeks/4/) | <ul><li>[Set 1](https://cs50.harvard.edu/x/2022/psets/4/filter/less/)</li><li>[Set 2](https://cs50.harvard.edu/x/2022/psets/4/filter/more/)</li></ul> | [Problem Set 1](/cs-50/week-4/helpers.c) |
-| :point_right: | [Week 5: Data Structures](https://cs50.harvard.edu/x/2022/weeks/5/) | <ul><li>[Set 1](https://cs50.harvard.edu/x/2022/psets/5/)</li></ul> | |
+| :point_right: | [Week 5: Data Structures](https://cs50.harvard.edu/x/2022/weeks/5/) | <ul><li>[Set 1](https://cs50.harvard.edu/x/2022/psets/5/)</li></ul> | [Problem Set](/cs-50/week-5/dictionary.c) |
 
 ### On Deck
 
