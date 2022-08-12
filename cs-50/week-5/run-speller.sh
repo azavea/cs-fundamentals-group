@@ -1,4 +1,4 @@
 #!/bin/bash
 
-make speller
+cc     speller.c dictionary.c  -o speller -lcs50
 ./speller "$@"
