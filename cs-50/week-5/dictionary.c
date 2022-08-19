@@ -2,7 +2,8 @@
 
 #include <ctype.h>
 #include <stdbool.h>
-#include <stdlib.io>
+#include <stdio.h>
+#include <stdlib.h>
 
 #include "dictionary.h"
 
@@ -47,15 +48,30 @@ unsigned int hash(const char *word)
 // Loads dictionary into memory, returning true if successful, else false
 bool load(const char *dictionary)
 {
+    char word[LENGTH + 1];
+    // open file
+    FILE * dictionaryFile = fopen(dictionary, "r");
+    if (dictionaryFile == NULL) {
+        return false;
+    }
+    // individual word
+    while(fscanf(dictionaryFile, "%s", word) != EOF){
+        printf("Here is the word |%s|\n", word );
+        // malloc
+        // make node
+        // add to bucket???? or wordList? tbd
+    }
+    return false;
     // alphabetically sorted from top to bottom
     // each of which ends with \n
     // no word will be longer than LENGTH (a constant defined in dictionary.h)
     // only lowercase alphabetical characters and possibly apostrophes
-    table *myTable = malloc(sizeof(table));
+    // below un-commented for now just to test file load
+   /* table *myTable = malloc(sizeof(table));
     if (myTable == NULL) {
         return false;
     }
-    return true;
+    return true;*/
 }
 
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
