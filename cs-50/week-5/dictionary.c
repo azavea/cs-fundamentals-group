@@ -4,6 +4,7 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "dictionary.h"
 
@@ -15,25 +16,23 @@ typedef struct node
 }
 node;
 
-//try to create a larger node to contain the other nodes for storing has conflicts
-typedef struct biggerNode 
-{
-    char key[1];
-    node *wordList[3];
-    struct biggerNode *next;
-}
-biggerNode;
-
 // TODO: Choose number of buckets in hash table
 const unsigned int N = 26;
 
-// Hash table
-biggerNode *table[N];
+//hash table
+node *table[N];
 
 // Returns true if word is in dictionary, else false
 bool check(const char *word)
 {
-    // TODO
+    unsigned int index = hash(word);
+    node *n = table[index];
+    while(n->next != NULL){
+        if(n->word == word){
+            return true;
+        }
+        n = n->next;
+    }
     return false;
 }
 
@@ -56,22 +55,28 @@ bool load(const char *dictionary)
     }
     // individual word
     while(fscanf(dictionaryFile, "%s", word) != EOF){
-        printf("Here is the word |%s|\n", word );
         // malloc
+        node *n = malloc(sizeof(node));
+        if(n == NULL){
+            return false;
+        }
         // make node
-        // add to bucket???? or wordList? tbd
+        strcpy(n->word, word);
+        n->next = NULL;
+        // add to bucket
+        unsigned int index = hash(word);
+        if(table[index] == NULL){
+            table[index] = n;
+        }
+        else if(table[index]->next == NULL){
+            table[index]->next = n;
+        }
+        else{
+            n->next = table[index]->next;
+            table[index] = n;
+        }
     }
-    return false;
-    // alphabetically sorted from top to bottom
-    // each of which ends with \n
-    // no word will be longer than LENGTH (a constant defined in dictionary.h)
-    // only lowercase alphabetical characters and possibly apostrophes
-    // below un-commented for now just to test file load
-   /* table *myTable = malloc(sizeof(table));
-    if (myTable == NULL) {
-        return false;
-    }
-    return true;*/
+    return true;
 }
 
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
