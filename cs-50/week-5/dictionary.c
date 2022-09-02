@@ -27,8 +27,9 @@ bool check(const char *word)
 {
     unsigned int index = hash(word);
     node *n = table[index];
-    while(n->next != NULL){
-        if(n->word == word){
+    while(n != NULL){
+        int unequal = strcmp(n->word, word);
+        if(!unequal){
             return true;
         }
         n = n->next;
