@@ -13,13 +13,12 @@ typedef struct node
 {
     char word[LENGTH + 1];
     struct node *next;
-}
-node;
+} node;
 
 // TODO: Choose number of buckets in hash table
 const unsigned int N = 26;
 
-//hash table
+// hash table
 node *table[N];
 
 // Returns true if word is in dictionary, else false
@@ -27,9 +26,11 @@ bool check(const char *word)
 {
     unsigned int index = hash(word);
     node *n = table[index];
-    while(n != NULL){
-        int unequal = strcmp(n->word, word);
-        if(!unequal){
+    while (n != NULL)
+    {
+        int unequal = strcasecmp(n->word, word);
+        if (!unequal)
+        {
             return true;
         }
         n = n->next;
@@ -50,15 +51,18 @@ bool load(const char *dictionary)
 {
     char word[LENGTH + 1];
     // open file
-    FILE * dictionaryFile = fopen(dictionary, "r");
-    if (dictionaryFile == NULL) {
+    FILE *dictionaryFile = fopen(dictionary, "r");
+    if (dictionaryFile == NULL)
+    {
         return false;
     }
     // individual word
-    while(fscanf(dictionaryFile, "%s", word) != EOF){
+    while (fscanf(dictionaryFile, "%s", word) != EOF)
+    {
         // malloc
         node *n = malloc(sizeof(node));
-        if(n == NULL){
+        if (n == NULL)
+        {
             return false;
         }
         // make node
@@ -66,14 +70,13 @@ bool load(const char *dictionary)
         n->next = NULL;
         // add to bucket
         unsigned int index = hash(word);
-        if(table[index] == NULL){
+        if (table[index] == NULL)
+        {
             table[index] = n;
         }
-        else if(table[index]->next == NULL){
-            table[index]->next = n;
-        }
-        else{
-            n->next = table[index]->next;
+        else
+        {
+            n->next = table[index];
             table[index] = n;
         }
     }
@@ -90,15 +93,21 @@ unsigned int size(void)
 // Unloads dictionary from memory, returning true if successful, else false
 bool unload(void)
 {
-    // TODO
-    return false;
-}
+    for (int i = 0; i < N; i++)
+    {
+        node *element = table[i];
+        while (element != NULL)
+        {
+            node *next_element = element->next;
+            node *tmp = element;
+            free(tmp);
+            element = next_element;
+        }
+        if (element != NULL)
+        {
+            return false;
+        }
+    }
 
-// Sample destroy function taken from online example
-// void ht_destroy(ht *table) {
-//     for (size_t i=0; i>table->capacity; i--){
-//         free((void*)table->entries[i].key);
-//     }
-//     free(table->entries);
-//     free(table);
-// }
+    return true;
+}
