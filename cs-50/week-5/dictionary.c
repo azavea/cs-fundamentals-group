@@ -22,10 +22,16 @@ const unsigned int N = 26;
 node *table[N];
 
 // Returns true if word is in dictionary, else false
-bool check(const char *word)
+bool check(char *word)
 {
     unsigned int index = hash(word);
     node *n = table[index];
+
+    while (word[strlen(word)-1] == '\'')
+    {
+        word[strlen(word)-1] = '\0';
+    };
+
     while (n != NULL)
     {
         int unequal = strcasecmp(n->word, word);
