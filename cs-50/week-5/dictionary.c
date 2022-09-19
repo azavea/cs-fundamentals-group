@@ -26,10 +26,11 @@ bool check(char *word)
 {
     unsigned int index = hash(word);
     node *n = table[index];
+    char last_letter = word[strlen(word)-1];
 
-    while (word[strlen(word)-1] == '\'')
+    while (last_letter == '\'')
     {
-        word[strlen(word)-1] = '\0';
+        last_letter = '\0';
     };
 
     while (n != NULL)
