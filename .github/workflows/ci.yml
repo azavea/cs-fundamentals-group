@@ -38,6 +38,8 @@ jobs:
           for dir in week*; do
             if [[ "$dir" == *"week-4"* ]];then
               cd "$dir"; cc filter.c helpers.c -o filter -lcs50 -lm; cd ~-
+            elif [[ "$dir" == *"week-5"* ]];then
+              echo "Skip Week 5 compile test";
             else
               cd "$dir"; compile; cd ~-
             fi
