@@ -25,18 +25,33 @@ We're going to learn computer science! Once a week we'll meet and work on proble
 
 ## Plan
 
-**Subject:** Introduction to computer science concepts \
-**Resource:** [Harvard's CS50 Coursera Course](https://www.edx.org/course/introduction-computer-science-harvardx-cs50x)
+**Subject:** Computer Architecture \
+**Resource:** [Build a Modern Computer from First Principles: From Nand to Tetris Part I (Project-Centered Course)](https://www.coursera.org/learn/build-a-computer)
 | Progress| Module | Problem Sets | Solutions |
 |:----------|:-------------|:------|:------|
-| | [Week 1: C](https://cs50.harvard.edu/x/2022/weeks/1/) | <ul><li>[Set 1](https://cs50.harvard.edu/x/2022/psets/1/mario/more/)</li><li>[Set 2](https://cs50.harvard.edu/x/2022/psets/1/credit/)</li></ul> | [Problem Set 1](/cs-50/week-1/mario.c) <br /> [Problem Set 2](/cs-50/week-1/credit.c) |
-| | [Week 2: Arrays](https://cs50.harvard.edu/x/2022/weeks/2/) | <ul><li>[Set 1](https://cs50.harvard.edu/x/2022/psets/2/caesar/)</li><li>[Set 2](https://cs50.harvard.edu/x/2022/psets/2/substitution/)</li></ul>| [Problem Set 1](/cs-50/week-2/caesar.c) <br /> [Problem Set 2](/cs-50/week-2/substitution.c) |
-| | [Week 3: Algorithms](https://cs50.harvard.edu/x/2022/weeks/3/) |  <ul><li>[Set 1](https://cs50.harvard.edu/x/2022/psets/3/runoff/)</li><li>[Set 2](https://cs50.harvard.edu/x/2022/psets/3/tideman/)</li></ul> | [Problem Set 1](/cs-50/week-3/runoff.c) <br /> [Problem Set 2](/cs-50/week-3/tideman.c) |
-| | [Week 4: Memory](https://cs50.harvard.edu/x/2022/weeks/4/) | <ul><li>[Set 1](https://cs50.harvard.edu/x/2022/psets/4/filter/less/)</li><li>[Set 2](https://cs50.harvard.edu/x/2022/psets/4/filter/more/)</li></ul> | [Problem Set 1](/cs-50/week-4/helpers.c) |
-| :point_right: | [Week 5: Data Structures](https://cs50.harvard.edu/x/2022/weeks/5/) | <ul><li>[Set 1](https://cs50.harvard.edu/x/2022/psets/5/)</li></ul> | [Problem Set 1](/cs-50/week-5/dictionary.c) |
+| :point_right: | [Week 1: Boolean Functions and Gate Logic](https://www.coursera.org/learn/build-a-computer/home/week/1) | <ul><li>[Project 1](https://www.nand2tetris.org/project01)</li></ul> | |
+| | [Week 2: Boolean Arithmetic and the ALU](https://www.coursera.org/learn/build-a-computer/home/week/2) | <ul><li>[Project 2](https://www.nand2tetris.org/project02)</li></ul> | |
+| | [Week 3: Memory](https://www.coursera.org/learn/build-a-computer/home/week/3) | <ul><li>[Project 3](https://www.nand2tetris.org/project03)</li></ul> | |
+| | [Week 4: Machine Language](https://www.coursera.org/learn/build-a-computer/home/week/4) | <ul><li>[Project 4](https://www.nand2tetris.org/project04)</li></ul> | |
+| | [Week 5: Computer Architecture](https://www.coursera.org/learn/build-a-computer/home/week/5) | <ul><li>[Project 5](https://www.nand2tetris.org/project05)</li></ul> | |
+| | [Week 6: Assembler](https://www.coursera.org/learn/build-a-computer/home/week/6) |<ul><li>[Project 6](https://www.nand2tetris.org/project06)</li></ul> | |
 
 ### On Deck
 
-**Subject:** Computer architecture \
-**Resource:** [_The Elements of Computing Systems_ (aka “Nand2Tetris”) two-part Coursera course](https://www.coursera.org/learn/build-a-computer)\
-~ 12 modules
+**Subject:** Computer Architecture \
+**Resource:** [Build a Modern Computer from First Principles: Nand to Tetris Part II (project-centered course)](https://www.coursera.org/learn/nand2tetris2)\
+6 modules
+
+## Complete
+
+
+**Subject:** Introduction to computer science concepts \
+**Resource:** [Harvard's CS50 Coursera Course](https://www.edx.org/course/introduction-computer-science-harvardx-cs50x)
+| Module | Problem Sets | Solutions |
+|:-------------|:------|:------|
+| [Week 1: C](https://cs50.harvard.edu/x/2022/weeks/1/) | <ul><li>[Set 1](https://cs50.harvard.edu/x/2022/psets/1/mario/more/)</li><li>[Set 2](https://cs50.harvard.edu/x/2022/psets/1/credit/)</li></ul> | [Problem Set 1](/cs-50/week-1/mario.c) <br /> [Problem Set 2](/cs-50/week-1/credit.c) |
+| [Week 2: Arrays](https://cs50.harvard.edu/x/2022/weeks/2/) | <ul><li>[Set 1](https://cs50.harvard.edu/x/2022/psets/2/caesar/)</li><li>[Set 2](https://cs50.harvard.edu/x/2022/psets/2/substitution/)</li></ul>| [Problem Set 1](/cs-50/week-2/caesar.c) <br /> [Problem Set 2](/cs-50/week-2/substitution.c) |
+| [Week 3: Algorithms](https://cs50.harvard.edu/x/2022/weeks/3/) |  <ul><li>[Set 1](https://cs50.harvard.edu/x/2022/psets/3/runoff/)</li><li>[Set 2](https://cs50.harvard.edu/x/2022/psets/3/tideman/)</li></ul> | [Problem Set 1](/cs-50/week-3/runoff.c) <br /> [Problem Set 2](/cs-50/week-3/tideman.c) |
+| [Week 4: Memory](https://cs50.harvard.edu/x/2022/weeks/4/) | <ul><li>[Set 1](https://cs50.harvard.edu/x/2022/psets/4/filter/less/)</li><li>[Set 2](https://cs50.harvard.edu/x/2022/psets/4/filter/more/)</li></ul> | [Problem Set 1](/cs-50/week-4/helpers.c) |
+| [Week 5: Data Structures](https://cs50.harvard.edu/x/2022/weeks/5/) | <ul><li>[Set 1](https://cs50.harvard.edu/x/2022/psets/5/)</li></ul> | [Problem Set 1](/cs-50/week-5/dictionary.c) |
+
