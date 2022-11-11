@@ -17,3 +17,5 @@
 !/cs-50/week-*/images/*
 !/cs-50/week-*/dictionaries
 !/cs-50/week-*/texts
+# ignore nand-2-tetris tools folder
+/nand2tetris/tools/*
