@@ -29,8 +29,8 @@ We're going to learn computer science! Once a week we'll meet and work on proble
 **Resource:** [Build a Modern Computer from First Principles: From Nand to Tetris Part I (Project-Centered Course)](https://www.coursera.org/learn/build-a-computer)
 | Progress| Module | Problem Sets | Solutions |
 |:----------|:-------------|:------|:------|
-| :point_right: | [Week 1: Boolean Functions and Gate Logic](https://www.coursera.org/learn/build-a-computer/home/week/1) | <ul><li>[Project 1](https://www.nand2tetris.org/project01)</li></ul> | |
-| | [Week 2: Boolean Arithmetic and the ALU](https://www.coursera.org/learn/build-a-computer/home/week/2) | <ul><li>[Project 2](https://www.nand2tetris.org/project02)</li></ul> | |
+| | [Week 1: Boolean Functions and Gate Logic](https://www.coursera.org/learn/build-a-computer/home/week/1) | <ul><li>[Project 1](https://www.nand2tetris.org/project01)</li></ul> | [Project 1 Gates](https://github.com/azavea/cs-fundamentals-group/tree/master/nand2tetris/projects/01) |
+| :point_right: | [Week 2: Boolean Arithmetic and the ALU](https://www.coursera.org/learn/build-a-computer/home/week/2) | <ul><li>[Project 2](https://www.nand2tetris.org/project02)</li></ul> | |
 | | [Week 3: Memory](https://www.coursera.org/learn/build-a-computer/home/week/3) | <ul><li>[Project 3](https://www.nand2tetris.org/project03)</li></ul> | |
 | | [Week 4: Machine Language](https://www.coursera.org/learn/build-a-computer/home/week/4) | <ul><li>[Project 4](https://www.nand2tetris.org/project04)</li></ul> | |
 | | [Week 5: Computer Architecture](https://www.coursera.org/learn/build-a-computer/home/week/5) | <ul><li>[Project 5](https://www.nand2tetris.org/project05)</li></ul> | |
