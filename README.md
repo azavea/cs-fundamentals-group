@@ -37,7 +37,7 @@ We're going to learn computer science! Once a week we'll meet and work on proble
 **Resource:** [Operating Systems: Three Easy Pieces](https://pages.cs.wisc.edu/~remzi/OSTEP/)
 | Progress | Date | Topic Chapter | Chapter Discussion Notes |
 |:----------|:-------------|:------|:------|
-| | 12/1 | [Virtualization: Process Intro](https://pages.cs.wisc.edu/~remzi/OSTEP/cpu-intro.pdf) | |
+| :point_right:| 12/1 | [Virtualization: Process Intro](https://pages.cs.wisc.edu/~remzi/OSTEP/cpu-intro.pdf) | [Notes](operating-systems/process-intro-notes.md) |
 | | 12/9 | [Concurrency: Threads Intro](https://pages.cs.wisc.edu/~remzi/OSTEP/threads-intro.pdf) | |
 | | 12/16 | [Persistence: Distributed Systems Intro](https://pages.cs.wisc.edu/~remzi/OSTEP/dist-intro.pdf) | |
 
@@ -66,7 +66,7 @@ We're going to learn computer science! Once a week we'll meet and work on proble
 
 **Subject:** Computer Architecture \
 **Resource:** [Build a Modern Computer from First Principles: From Nand to Tetris Part I (Project-Centered Course)](https://www.coursera.org/learn/build-a-computer)
-| Progress| Module | Problem Sets | Solutions |
-|:----------|:-------------|:------|:------|
-| | [Week 1: Boolean Functions and Gate Logic](https://www.coursera.org/learn/build-a-computer/home/week/1) | <ul><li>[Project 1](https://www.nand2tetris.org/project01)</li></ul> | [Project 1 Gates](https://github.com/azavea/cs-fundamentals-group/tree/master/nand2tetris/projects/01) |
-| | [Week 2: Boolean Arithmetic and the ALU](https://www.coursera.org/learn/build-a-computer/home/week/2) | <ul><li>[Project 2](https://www.nand2tetris.org/project02)</li></ul> | [Project 2 Gates](https://github.com/azavea/cs-fundamentals-group/tree/master/nand2tetris/projects/02) |
+| Module | Problem Sets | Solutions |
+|:-------------|:------|:------|
+| [Week 1: Boolean Functions and Gate Logic](https://www.coursera.org/learn/build-a-computer/home/week/1) | <ul><li>[Project 1](https://www.nand2tetris.org/project01)</li></ul> | [Project 1 Gates](https://github.com/azavea/cs-fundamentals-group/tree/master/nand2tetris/projects/01) |
+| [Week 2: Boolean Arithmetic and the ALU](https://www.coursera.org/learn/build-a-computer/home/week/2) | <ul><li>[Project 2](https://www.nand2tetris.org/project02)</li></ul> | [Project 2 Gates](https://github.com/azavea/cs-fundamentals-group/tree/master/nand2tetris/projects/02) |
