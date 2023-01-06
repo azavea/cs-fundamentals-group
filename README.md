@@ -37,8 +37,8 @@ We're going to learn computer science! Once a week we'll meet and work on proble
 **Resource:** [Operating Systems: Three Easy Pieces](https://pages.cs.wisc.edu/~remzi/OSTEP/)
 | Progress | Date | Topic Chapter | Chapter Discussion Notes |
 |:----------|:-------------|:------|:------|
-| :point_right:| 12/1 | [Virtualization: Process Intro](https://pages.cs.wisc.edu/~remzi/OSTEP/cpu-intro.pdf) | [Notes](operating-systems/process-intro-notes.md) |
-| | 12/9 | [Concurrency: Threads Intro](https://pages.cs.wisc.edu/~remzi/OSTEP/threads-intro.pdf) | |
+| | 12/1 | [Virtualization: Process Intro](https://pages.cs.wisc.edu/~remzi/OSTEP/cpu-intro.pdf) | [Notes](operating-systems/process-intro-notes.md) |
+| :point_right: | 12/9 | [Concurrency: Threads Intro](https://pages.cs.wisc.edu/~remzi/OSTEP/threads-intro.pdf) | [Notes](operating-systems/concurrency-intro-notes.md) |
 | | 12/16 | [Persistence: Distributed Systems Intro](https://pages.cs.wisc.edu/~remzi/OSTEP/dist-intro.pdf) | |
 
 **Subject:** Networking \
