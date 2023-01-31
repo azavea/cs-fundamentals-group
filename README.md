@@ -38,8 +38,8 @@ We're going to learn computer science! Once a week we'll meet and work on proble
 | Progress | Date | Topic Chapter | Chapter Discussion Notes |
 |:----------|:-------------|:------|:------|
 | | 12/1 | [Virtualization: Process Intro](https://pages.cs.wisc.edu/~remzi/OSTEP/cpu-intro.pdf) | [Notes](operating-systems/process-intro-notes.md) |
-| :point_right: | 12/9 | [Concurrency: Threads Intro](https://pages.cs.wisc.edu/~remzi/OSTEP/threads-intro.pdf) | [Notes](operating-systems/concurrency-intro-notes.md) |
-| | 12/16 | [Persistence: Distributed Systems Intro](https://pages.cs.wisc.edu/~remzi/OSTEP/dist-intro.pdf) | |
+| | 12/9 | [Concurrency: Threads Intro](https://pages.cs.wisc.edu/~remzi/OSTEP/threads-intro.pdf) | [Notes](operating-systems/concurrency-intro-notes.md) |
+| :point_right: | 12/16 | [Persistence: Distributed Systems Intro](https://pages.cs.wisc.edu/~remzi/OSTEP/dist-intro.pdf) | [Notes](operating-systems/distributed-systems-intro-notes.md) |
 
 **Subject:** Networking \
 **Resource:** [Computer Networking: A Top-Down Approach](https://gaia.cs.umass.edu/kurose_ross/wireshark.php)
